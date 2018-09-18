@@ -30,13 +30,13 @@
             type: Array,
           },
           basedistance:{
-            default:150,
+            default:130,
           }
         },
         data(){
           return{
-            openFlag:false,
-            operators:['+','+'],
+            openFlag:false,  //打开状态
+            //operators:['+','+'],
           }
         },
         mounted(){
@@ -52,7 +52,7 @@
             el.style.right = '26px';
             el.style.bottom = '26px';
           });
-          this.operators = ['-', '-'];
+          //this.operators = ['-', '-'];
         },
          methods:{
             tggMenu(){
@@ -72,14 +72,14 @@
             },
            toggleMenuTransition(name,index,revert){
                let allArea = 90 / (this.menuItems.length - 1);
-               let axisx = Math.sin((this.menuItems.length - 1 - index) * allArea * 2 * Math.PI / 360);
-               let axisy = Math.cos((this.menuItems.length - 1 - index) * allArea * 2 * Math.PI / 360);
+               let axisx = Math.sin((this.menuItems.length - 1 - index) * allArea  * Math.PI / 180);
+               let axisy = Math.cos((this.menuItems.length - 1 - index) * allArea  * Math.PI / 180);
                let el = document.getElementById(name);
                let that = this;
                if(!revert){
                  setTimeout(function(){
                    el.style.transitionDuration = '200ms';
-                   el.style.transform = `translate(${that.operators[0]}${that.basedistance*axisx}px,${that.operators[1]}${that.basedistance*axisy}px)`;
+                   el.style.transform = `translate(-${that.basedistance*axisx}px,-${that.basedistance*axisy}px)`;
                  },index * 100)
                }else{
                  el.style.transitionDuration = '200ms';
