@@ -1,6 +1,8 @@
 # tan
 
-> A Vue.js project
+> 该作品是模拟掘金上的信心同学写的，以下是原版地址
+https://github.com/qianbin01/toggle-menu
+
 
 ## Build Setup
 
